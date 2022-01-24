@@ -1,0 +1,39 @@
+@import '../../../styles/variables';
+
+.input_number_btn {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  border: 1px solid $NEUTRAL3;
+  border-radius: 0.8rem;
+  justify-content: space-between;
+  background-color: $NEUTRAL1;
+
+  &:hover,
+  &:focus {
+    border-color: $BRAND1_ACCENT;
+    box-shadow: 0 1px 1px rgba($color: $BRAND1_ACCENT, $alpha: 0.5);
+  }
+
+  & > * {
+    line-height: 0;
+    padding: 0 0.8rem;
+    height: 100%;
+  }
+
+  & > p {
+    cursor: not-allowed;
+    width: 2rem;
+    text-align: center;
+    display: grid;
+    place-content: center;
+  }
+
+  & > button:first-child {
+    border-right: 1px solid $NEUTRAL3;
+  }
+
+  & > button:last-child {
+    border-left: 1px solid $NEUTRAL3;
+  }
+}

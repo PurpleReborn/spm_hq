@@ -1,0 +1,10 @@
+@import '../../../styles/variables';
+
+.container {
+  display: grid;
+
+  &[data-double] {
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+}

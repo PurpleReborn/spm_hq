@@ -1,0 +1,15 @@
+@import '../../../styles/variables';
+
+.root {
+  & > span {
+    color: $NEUTRAL5;
+    text-transform: capitalize;
+    font-weight: 600;
+  }
+
+  & > p {
+    margin-top: 1rem;
+    color: $NEUTRAL8;
+    line-height: 1.5;
+  }
+}

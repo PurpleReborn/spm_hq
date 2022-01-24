@@ -1,0 +1,22 @@
+@import '../../../styles/variables';
+
+.card {
+  padding: 1.6rem;
+  border-radius: 1.2rem;
+
+  &[data-color='white'] {
+    background-color: $NEUTRAL1;
+    border: 1px solid $NEUTRAL1;
+    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.12);
+
+    &[data-bordered='dash'] {
+      border: 1px dashed $NEUTRAL3;
+    }
+  }
+
+  &[data-width='fit-content'] {
+    width: fit-content;
+  }
+
+  background-color: $NEUTRAL2;
+}

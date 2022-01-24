@@ -1,0 +1,51 @@
+@import '../../../styles/variables';
+
+.root {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  cursor: pointer;
+  background-color: transparent;
+  color: $BRAND1_LIGHTER;
+  padding: 1rem;
+  border-radius: 1.2rem;
+
+  &:active,
+  &:focus {
+    border: none;
+    outline: none;
+  }
+
+  &[data-isactive='true'],
+  &:hover {
+    background-color: $BRAND1_ACCENT2;
+    color: $NEUTRAL1;
+
+    & > p {
+      color: $NEUTRAL1;
+    }
+  }
+
+  & > .icon_container {
+    width: 3.2rem;
+    height: 3.2rem;
+    border-radius: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: $BRAND1_ACCENT;
+    color: $BRAND1_LIGHTER;
+
+    &[data-isactive='true'] {
+      color: $NEUTRAL1;
+      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.04);
+    }
+  }
+
+  & > p {
+    font-size: 1.4rem;
+    text-transform: capitalize;
+    font-weight: 500;
+    color: $BRAND1_LIGHTER;
+  }
+}

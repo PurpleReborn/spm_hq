@@ -1,0 +1,68 @@
+@import '../../../styles/variables';
+
+@mixin disabledStyle {
+  &:disabled {
+    color: $NEUTRAL1;
+    background-color: $NEUTRAL2;
+  }
+}
+
+.root {
+  background-color: transparent;
+  color: $BRAND1;
+  width: fit-content;
+  padding: 0.8rem 1.8rem;
+  font-size: $font-sm;
+  font-weight: 600;
+  border-radius: 1.2rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
+  border: 1px solid transparent;
+
+  &[data-size='small'] {
+    padding: 0.6rem 1.6rem;
+    font-size: $font-xs;
+  }
+
+  &[data-size='full'] {
+    width: 100%;
+  }
+
+  &[data-bordered='true'] {
+    border: 1px dashed $BRAND1_LIGHT;
+  }
+
+  &:hover {
+    background-color: $NEUTRAL2;
+  }
+
+  @include disabledStyle();
+
+  &.primary {
+    background-color: $BRAND1_ACCENT;
+    color: $NEUTRAL1;
+    border: 1px solid $BRAND1_ACCENT;
+
+    @include disabledStyle();
+
+    &:hover {
+      background-color: $BRAND1;
+    }
+  }
+
+  &.secondary {
+    color: $BRAND1_ACCENT;
+    background-color: $NEUTRAL1;
+    border: 1px solid $BRAND1_ACCENT;
+
+    @include disabledStyle();
+
+    &:hover {
+      background-color: $BRAND1_ACCENT;
+      color: $NEUTRAL1;
+    }
+  }
+}

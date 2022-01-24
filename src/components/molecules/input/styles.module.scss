@@ -1,0 +1,98 @@
+@import '../../../styles/variables';
+
+.root {
+  width: 100%;
+
+  & > p {
+    font-size: $font-sm;
+    margin-bottom: 1rem;
+    color: $NEUTRAL10;
+  }
+
+  &__input {
+    color: $NEUTRAL10;
+    height: 100%;
+    width: 100%;
+    border: none;
+    padding: 0.4rem 0;
+    background-color: $NEUTRAL1;
+
+    &[data-transparent='true'] {
+      background-color: transparent;
+    }
+
+    &[data-small='true'] {
+      font-size: $font-xs;
+    }
+
+    &[type='password'] {
+      letter-spacing: 0.5rem;
+    }
+
+    &:disabled {
+      background-color: $NEUTRAL2;
+    }
+
+    &::placeholder {
+      color: $NEUTRAL4;
+      letter-spacing: normal;
+    }
+
+    &:focus:not(:disabled),
+    &:active:not(:disabled) {
+      border: none;
+
+      &[data-transparent='true'] {
+        background-color: transparent;
+      }
+    }
+  }
+}
+
+.input_container {
+  padding: 0.8rem 1.6rem;
+  border: 1px solid $NEUTRAL3;
+  border-radius: 0.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.2rem;
+  background-color: $NEUTRAL1;
+
+  &[data-small='true'] {
+    padding: 0.6rem 1.2rem;
+  }
+
+  &[data-ghost='true'] {
+    border-color: transparent;
+  }
+
+  &:focus-within,
+  &:hover {
+    border-color: $BRAND1_ACCENT;
+    box-shadow: 0 1px 1px rgba($color: $BRAND1_ACCENT, $alpha: 0.5);
+
+    &[data-ghost='true'] {
+      border-color: transparent;
+      box-shadow: none;
+    }
+  }
+
+  &__with_prefix {
+    display: flex;
+    align-items: center;
+    gap: 1.4rem;
+    width: 100%;
+  }
+
+  &[data-disabled='true'] {
+    background-color: $NEUTRAL2;
+  }
+
+  & > textarea {
+    width: 100%;
+    height: auto;
+    border: transparent;
+    font-family: inherit;
+  }
+}

@@ -1,0 +1,12 @@
+@import '../../../styles/variables';
+
+.root {
+  color: $ALERT_ERROR;
+  font-size: 1.4rem;
+  font-weight: 400;
+
+  &[data-large='true'] {
+    font-size: 1.8rem;
+    font-weight: 700;
+  }
+}

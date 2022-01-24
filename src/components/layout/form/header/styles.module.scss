@@ -1,0 +1,13 @@
+@import '../../../../styles/variables';
+
+.root {
+  padding: 1.4rem 2rem;
+  box-shadow: 0px 1px 0px rgba(0, 0, 0, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: sticky;
+  top: 0;
+  background-color: $NEUTRAL1;
+  z-index: 20;
+}

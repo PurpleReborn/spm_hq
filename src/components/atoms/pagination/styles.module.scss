@@ -1,0 +1,46 @@
+@import '../../../styles/variables';
+
+.pagination {
+  display: flex;
+  align-items: center;
+  width: fit-content;
+  gap: 1rem;
+
+  &_active {
+    background-color: $BRAND1_ACCENT;
+    color: $NEUTRAL1;
+
+    &:hover {
+      background-color: $BRAND1_ACCENT;
+    }
+  }
+
+  &_page {
+    width: 1.6rem;
+    height: 1.6rem;
+    padding: 0.8rem;
+    border-radius: 0.8rem;
+    display: grid;
+    place-content: center;
+    cursor: pointer;
+
+    &:hover:not(.pagination_active) {
+      background-color: $NEUTRAL2;
+    }
+
+    &__btn_next,
+    &__btn_prev {
+      display: grid;
+      place-content: center;
+      cursor: pointer;
+      width: 1.6rem;
+      height: 1.6rem;
+      padding: 0.8rem;
+      border-radius: 0.8rem;
+
+      &:hover {
+        background-color: $NEUTRAL2;
+      }
+    }
+  }
+}

@@ -1,0 +1,37 @@
+@import '../../../styles/variables';
+
+.root {
+  text-decoration: none;
+
+  &:active,
+  &:focus {
+    border: none;
+    outline: none;
+  }
+}
+
+.nav_link {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  background-color: transparent;
+  color: $NEUTRAL8;
+  padding: 0.8rem 1.2rem;
+  border-radius: 1.2rem;
+  text-decoration: none;
+  width: fit-content;
+
+  & ~ a {
+    text-decoration: none;
+  }
+
+  &:hover {
+    background-color: $NEUTRAL2;
+    color: $BRAND1;
+  }
+
+  &[data-isactive='true'] {
+    background-color: $NEUTRAL2;
+    color: $BRAND1;
+  }
+}

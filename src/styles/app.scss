@@ -1,0 +1,105 @@
+@import './_reset';
+@import './variables';
+
+:root {
+  // font-size: calc(100vw * 8rem / 1440);
+  font-size: 62.5%;
+}
+
+@font-face {
+  font-family: 'Poppins';
+  font-weight: 700;
+  src: url('../assets/fonts/Poppins-Bold.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Poppins';
+  font-weight: 600;
+  src: url('../assets/fonts/Poppins-Medium.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Poppins';
+  font-weight: 500;
+  src: url('../assets/fonts/Poppins-Regular.ttf') format('truetype');
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  position: relative;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 700;
+  font-family: 'Poppins';
+}
+
+p,
+span,
+ul,
+li,
+ol,
+input,
+button,
+div {
+  font-size: $font-xs;
+  font-weight: 500;
+  font-family: 'Poppins';
+}
+
+h1 {
+  $fontSize: ($font-2xl);
+  font-size: ($fontSize);
+  line-height: calc($fontSize + 1rem);
+}
+
+h2 {
+  $fontSize: ($font-xl);
+  font-size: ($fontSize);
+  line-height: calc($fontSize + 1rem);
+}
+
+h3 {
+  $fontSize: ($font-lg);
+  font-size: ($fontSize);
+  font-weight: 600;
+  line-height: calc($fontSize + 1rem);
+}
+
+h4 {
+  $fontSize: ($font-md);
+  font-size: ($fontSize);
+  font-weight: 600;
+  line-height: calc($fontSize + 1rem);
+}
+
+h5 {
+  $fontSize: ($font-sm);
+  font-size: ($fontSize);
+  font-weight: 600;
+  line-height: calc($fontSize + 1rem);
+}
+
+h6 {
+  $fontSize: ($font-xs);
+  font-size: ($fontSize);
+  font-weight: 600;
+  line-height: calc($fontSize + 1rem);
+}
+
+abbr {
+  text-decoration: none;
+}
+
+.modal-portal {
+  position: relative;
+  z-index: 20;
+}

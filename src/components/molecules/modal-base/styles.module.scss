@@ -1,0 +1,80 @@
+@import '../../../styles/variables';
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba($color: $NEUTRAL10, $alpha: 0.3);
+  z-index: 21;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.content {
+  position: relative;
+  background-color: $NEUTRAL1;
+  min-width: 42.5rem;
+  max-height: 80vh;
+  overflow-y: auto;
+  height: fit-content;
+  border-radius: 1.2rem;
+  padding: 0 2rem;
+  box-shadow: 0 5px 30px rgba($color: $NEUTRAL10, $alpha: 0.3);
+  z-index: 22;
+
+  &[data-transparent='true'] {
+    background: transparent;
+    background-color: transparent;
+    box-shadow: none;
+  }
+
+  & > * {
+    width: 100%;
+  }
+
+  & > *:not(:last-child) {
+    margin-bottom: 1.4rem;
+  }
+
+  & > header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    left: 0;
+    z-index: 5;
+    background-color: $NEUTRAL1;
+    padding: 2rem 0;
+    margin-bottom: 1rem;
+  }
+
+  & > article {
+    position: relative;
+  }
+
+  & > footer {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    position: sticky;
+    background-color: $NEUTRAL1;
+    bottom: 0;
+    left: 0;
+    z-index: 5;
+    padding: 2rem 0;
+
+    & > div {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+  }
+}
+
+.close_icon {
+  cursor: pointer;
+}

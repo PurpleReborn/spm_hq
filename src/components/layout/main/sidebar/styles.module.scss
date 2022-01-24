@@ -1,0 +1,26 @@
+@import '../../../../styles/variables';
+
+.root {
+  width: 26rem;
+  height: calc(100vh - 6.8rem);
+  background-color: $BRAND1;
+  position: fixed;
+  left: 0;
+}
+
+.sidebar {
+  padding: 2rem;
+
+  &_menu {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+    &__title {
+      font-weight: 600;
+      text-transform: uppercase;
+      color: $BRAND1_LIGHTER;
+      margin-bottom: 2rem;
+    }
+  }
+}

@@ -1,0 +1,102 @@
+@import '../../../styles/variables';
+
+.table {
+  & > header {
+    display: flex;
+    align-items: center;
+    flex: 1;
+  }
+
+  &_header__col {
+    padding: 1.6rem 1rem;
+    font-weight: 600;
+    color: $NEUTRAL10;
+    display: flex;
+    align-items: center;
+    gap: 0.2rem;
+  }
+
+  &_body {
+    border-top: 1px solid $NEUTRAL2;
+    border-bottom: 1px solid $NEUTRAL2;
+    padding: 0.6rem 0;
+
+    &__row {
+      background-color: $NEUTRAL1;
+      display: flex;
+      align-items: center;
+      color: $NEUTRAL10;
+
+      &[data-even='true'] {
+        background-color: $NEUTRAL2;
+      }
+
+      &[data-align-top='true'] {
+        align-items: flex-start;
+      }
+    }
+
+    &__col {
+      padding: 1.6rem;
+
+      & > p {
+        font-size: $font-sm;
+      }
+    }
+  }
+
+  & > footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+  }
+}
+
+@keyframes moveToLeft {
+  from {
+    left: -2%;
+    opacity: 0.8;
+  }
+  to {
+    left: 80%;
+    opacity: 0;
+  }
+}
+
+@keyframes blink {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0.5;
+  }
+}
+
+.loader_animate {
+  position: relative;
+  width: 50%;
+  min-height: 1rem;
+  background-color: rgba($color: $NEUTRAL2, $alpha: 0.7);
+  padding: 0.8rem;
+  animation: blink 1s linear infinite forwards;
+  border-radius: 0.2rem;
+
+  &__moving {
+    position: absolute;
+    top: 0;
+    left: 0;
+    content: ' ';
+    height: 100%;
+    width: 5rem;
+    border-radius: 0.2rem;
+    background-color: $NEUTRAL3;
+    animation: moveToLeft 1s linear infinite;
+  }
+}
+
+.sort_btn {
+  display: grid;
+  place-content: center;
+  cursor: pointer;
+}

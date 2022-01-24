@@ -1,0 +1,12 @@
+@import '../../../styles/variables';
+
+.root {
+  width: 100%;
+  height: 1px;
+  background-color: $BRAND1_ACCENT;
+  margin: 1.8rem 0;
+
+  &[data-grey='true'] {
+    background-color: $NEUTRAL2;
+  }
+}

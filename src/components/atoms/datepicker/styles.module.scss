@@ -1,0 +1,19 @@
+@import '../../../styles/variables';
+
+.root {
+  position: relative;
+  background-color: $NEUTRAL1;
+  border-radius: 1.2rem;
+  width: fit-content;
+
+  & > .calendar {
+    border: none;
+    background-color: transparent;
+    min-width: 30rem;
+    width: 32.5rem;
+
+    & > * {
+      font-family: 'Poppins';
+    }
+  }
+}
