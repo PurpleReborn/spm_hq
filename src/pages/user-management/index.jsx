@@ -4,6 +4,8 @@ import { DataTable, PageTitle } from 'components/molecules';
 import { ReactComponent as PlusSVG } from 'assets/icons/plus-icon.svg';
 import { useModal, useUser } from 'helpers/hooks';
 import { AddUserModal } from 'components/modal';
+import { storageKeys } from 'libs/keys';
+import { useHistory } from "react-router-dom";
 
 import styles from './styles.module.scss';
 
@@ -13,6 +15,7 @@ const UserManagementPage = (props) => {
   const {} = props;
   const { isOpen, toggleModal } = useModal(false);
   const { data, loading, revalidate } = useUser();
+  const history = useHistory();
 
   const columns = [
     { title: 'Username', sortable: true, dataIndex: 'username' },
@@ -23,6 +26,15 @@ const UserManagementPage = (props) => {
 
   return (
     <section className={root}>
+              {/* <Button
+            variant="primary"
+            onClick={() => {
+   
+                localStorage.removeItem(storageKeys.token);
+              history.push("/login")}}
+          >
+            Logout
+          </Button> */}
       <PageTitle title="User Management">
         <Button
           variant="primary"

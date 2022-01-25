@@ -5,6 +5,7 @@ import { Redirect, Route, useHistory } from 'react-router-dom';
 // import { useStore } from 'store';
 // import { userServices } from './fetch';
 // import { getUserToken } from 'helpers/storage';
+import axios from 'axios'
 
 export const GuestRoute = ({ component: Component, ...rest }) => {
   return <Route render={(props) => <Component {...props} />} {...rest} />;
@@ -12,14 +13,51 @@ export const GuestRoute = ({ component: Component, ...rest }) => {
 
 export const logout = () => {
   localStorage.removeItem(storageKeys.token);
-  window.location.replace('/signin');
+  window.location.replace('/login');
 };
 
 export const ProtectedRoute = ({ component: Component, ...rest }) => {
   //   const { handleUserData } = useStore();
+  const [token, setToken] = useState('')
   const [isAuthenticated, setIsAuthenticated] = useState(true);
   const [loading, setLoading] = useState(true);
   const history = useHistory();
+
+  const getLocal = async () => {
+    const myToken = await localStorage.getItem(storageKeys.token)
+    await setToken(myToken)
+  }
+
+  const getData = async (token) => {
+    try{
+      const res = await axios.get('https://api-nginx-spm.accelego.id/api/v1/master-data/decode-token', {
+        headers: {
+          'Content-Type': 'application/json',
+          'authorization': token
+        }
+      });
+      const user = res?.data?.value?.user?.role
+      console.log('ini ressssss',user);
+      if(user === 'Admin'){
+        console.log('okkkk');
+        setIsAuthenticated(true)
+        history.push("/user-management")
+        // history.push("/dekstop/penerimaan-bahan-baku")
+      }
+    }catch(err){
+      // console.log(err);
+      setIsAuthenticated(false)
+    }
+  }
+
+  const decode = async () => {
+    await getLocal()
+    await getData(token)
+  }
+
+  useEffect(()=> {
+    decode()
+  },[token])
 
   useEffect(() => {
     let isMounted = true;
@@ -58,7 +96,7 @@ export const ProtectedRoute = ({ component: Component, ...rest }) => {
     if (isMounted) {
       setTimeout(() => {
         setLoading(false);
-        setIsAuthenticated(true);
+        // setIsAuthenticated(true);
       }, 2000);
     }
 
@@ -80,7 +118,8 @@ export const ProtectedRoute = ({ component: Component, ...rest }) => {
             if (isAuthenticated) {
               return <Component {...props} />;
             } else {
-              return <Redirect to="/signin" />;
+              return <Component {...props} />;
+              // return <Redirect to="/login" />;
             }
           }}
         />

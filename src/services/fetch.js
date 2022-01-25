@@ -7,6 +7,26 @@ export const BASE_URL = (target, query = '') => `${API_URL}${target}${query}`;
 
 // const BASE_URL = (target) => `https://c7072ffa887b.ngrok.io/api/v1/${target}`;
 export const masterDataServices = {
+  login: {
+    tokenGet: (payload) => {
+      // console.log('iniiii', token);
+      return Axios.requestUser
+        .get(BASE_URL('master-data/decode-token'), {
+          headers: {
+            'Content-Type': 'application/json',
+            'authorization': payload,
+          }
+        })
+        .then((res) => Promise.resolve(res.data))
+        .catch((err) => Promise.reject(err.response));
+    },
+    post: (payload) => {
+      return Axios.requestUser
+        .post(BASE_URL('master-data/auth'), payload)
+        .then((res) => Promise.resolve(res.data))
+        .catch((err) => Promise.reject(err.response));
+    },
+  },
   products: {
     getList: () => {
       return Axios.requestUser
