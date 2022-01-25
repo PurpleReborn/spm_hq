@@ -34,6 +34,7 @@ const UserManagementPage = (props) => {
               history.push("/login")}}
           >
             Logout
+            
           </Button> */}
       <PageTitle title="User Management">
         <Button
